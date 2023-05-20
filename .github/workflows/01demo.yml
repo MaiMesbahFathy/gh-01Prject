@@ -19,5 +19,3 @@ jobs:
         run: npm run build
       - name: deploy code
         run: echo "Deploying code..."
-      - name: output event data to console
-        run: echo ${{ toJSON(github.event) }}
