@@ -1,5 +1,10 @@
 name: Event Demo 1
-on: [push, workflow_dispatch]
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,5 +19,3 @@ jobs:
         run: npm run build
       - name: deploy code
         run: echo "Deploying code..."
-      - name: output event data to console
-        run: echo ${{ toJson(github) }}
